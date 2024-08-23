@@ -1,1 +1,1 @@
-[]
+[{"uid":"ed0b34af445cb92","name":"add a note, save changes & verify note","time":{"start":1724440635127,"stop":1724440645929,"duration":10802},"status":"passed","severity":"normal"},{"uid":"2a2388f7f2b501ed","name":"skip tutorial","time":{"start":1724440633098,"stop":1724440635126,"duration":2028},"status":"passed","severity":"normal"},{"uid":"9d1372255a09cd32","name":"Delete a note","time":{"start":1724440645929,"stop":1724440665141,"duration":19212},"status":"failed","severity":"normal"}]
