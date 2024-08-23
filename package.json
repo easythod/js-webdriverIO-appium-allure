@@ -1,0 +1,33 @@
+{
+  "name": "my-new-project",
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/register": "^7.18.9",
+    "@wdio/allure-reporter": "^8.2.0",
+    "@wdio/appium-service": "^8.1.2",
+    "@wdio/browserstack-service": "^8.1.3",
+    "@wdio/cli": "^8.1.2",
+    "@wdio/local-runner": "^8.1.2",
+    "@wdio/mocha-framework": "^8.1.2",
+    "@wdio/spec-reporter": "^8.1.2",
+    "appium": "^2.0.0-beta.48",
+    "appium-uiautomator2-driver": "^2.12.1",
+    "appium-xcuitest-driver": "^4.16.6",
+    "eslint": "^8.31.0",
+    "eslint-plugin-wdio": "^8.0.14"
+  },
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js",
+    "ios": "wdio run config/wdio.ios.conf.js",
+    "android": "wdio run config/wdio.android.conf.js",
+    "all": "npm run android && npm run ios",
+    "ios_bs": "wdio run config/wdio.ios.bs.conf.js",
+    "android_bs": "wdio run config/wdio.android.bs.conf.js",
+    "all_bs": "npm run android_bs && npm run ios_bs"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}

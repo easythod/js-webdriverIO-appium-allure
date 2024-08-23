@@ -1,0 +1,55 @@
+name: run-test
+
+on:
+  push
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.19.0
+
+      - name: Install
+        run: npm install
+
+      - name: Test
+        env:
+          BROWSERSTACK_USER : ${{ secrets.BROWSERSTACK_USER }}
+          BROWSERSTACK_KEY : ${{ secrets.BROWSERSTACK_KEY }}
+        run: npx wdio run config/wdio.android.bs.conf.js -spec test/specs/android/add-note-screen.spec.js
+        continue-on-error: true
+
+      - uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: logs
+          path: logs
+        continue-on-error: true
+
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Allure Report action from marketplace
+        uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          allure_results: allure-results
+          allure_history: allure-history
+
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history 
