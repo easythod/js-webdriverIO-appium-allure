@@ -17,7 +17,7 @@ This project provides the ability to integrate webdriverIO into the Continuous I
 - [Allure](https://allurereport.org/)
 
 ## Requirements
-To install and run the project, you need [NodeJS](https://nodejs.org/), [Android Studio](https://developer.android.com/studio), [Java](https://www.java.com/) version 8 or above.
+To install and run the project, you need [NodeJS](https://nodejs.org/) version 16 or above, [Android Studio](https://developer.android.com/studio) version 2021 or above, [Java](https://www.java.com/) version 8 or above.
 
 ## Installation
 
